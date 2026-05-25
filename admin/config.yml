@@ -1,0 +1,52 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+locale: ja
+
+media_folder: assets/cms
+public_folder: /assets/cms
+
+collections:
+  - name: site_data
+    label: サイト管理
+    files:
+      - name: news
+        label: お知らせ
+        file: assets/news-data.json
+        fields:
+          - label: お知らせ一覧
+            name: news
+            widget: list
+            summary: "{{fields.date}} / {{fields.category}} / {{fields.title}}"
+            fields:
+              - label: カテゴリ
+                name: category
+                widget: select
+                options:
+                  - LIVE
+                  - NEW
+                  - EVENT
+                  - INFO
+              - label: ラベル色
+                name: categoryTone
+                widget: select
+                options:
+                  - label: ピンク
+                    value: pink
+                  - label: 紫
+                    value: purple
+                  - label: オレンジ
+                    value: orange
+              - label: 日付
+                name: date
+                widget: string
+                hint: 例：2026.05.25
+              - label: タイトル
+                name: title
+                widget: string
+              - label: リンク先
+                name: url
+                widget: string
+                hint: 例：products/index.html または https://example.com/

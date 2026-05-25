@@ -1,0 +1,18 @@
+.DS_Store
+*.zip
+
+# Local export snapshots
+munimuni-mart-netlify*/
+
+# Original heavy image sources kept locally only
+*.png
+*.jpg
+*.jpeg
+*.JPG
+*.JPEG
+*.PNG
+!assets/products/series/thumbs/*.jpg
+
+# Local dependencies and temp files
+node_modules/
+.netlify/

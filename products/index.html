@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>シリーズ一覧 | MUNIMUNI MART</title>
+    <meta name="description" content="MUNIMUNI MARTの職人手作りスクイーズをシリーズ別に紹介します。各シリーズ画像からカタログを確認できます。">
+    <link rel="stylesheet" href="../assets/styles.css">
+  </head>
+  <body>
+    <div class="loader" aria-hidden="true"><img src="../assets/munimuni-brand-logo.webp" alt=""></div>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="../index.html"><img src="../assets/munimuni-brand-logo.webp" alt="MUNIMUNI MART ロゴ"><span>MUNIMUNI MART</span></a>
+        <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
+        <nav class="site-nav" aria-label="グローバルナビゲーション">
+          <a href="../index.html">HOME</a><a class="is-active" href="index.html">PRODUCTS</a><a href="../where-to-buy/index.html">WHERE TO BUY</a><a href="../faq/index.html">FAQ</a><a href="../contact/index.html">CONTACT</a>
+        </nav>
+      </div>
+    </header>
+    <main class="page">
+      <section class="page-hero reveal">
+        <p class="eyebrow">Products</p>
+        <h1>シリーズ一覧</h1>
+      </section>
+      <section class="section product-series-list-section">
+        <div class="product-series-grid" data-product-series-grid></div>
+      </section>
+    </main>
+    <div class="catalog-modal" data-catalog-modal hidden>
+      <div class="catalog-modal-backdrop" data-catalog-close></div>
+      <div class="catalog-modal-panel" role="dialog" aria-modal="true" aria-labelledby="catalog-modal-title">
+        <button class="catalog-modal-close" type="button" data-catalog-close aria-label="閉じる">×</button>
+        <p class="catalog-modal-eyebrow">Catalog</p>
+        <h2 id="catalog-modal-title" data-catalog-modal-title>シリーズカタログ</h2>
+        <div class="catalog-modal-body" data-catalog-modal-body></div>
+      </div>
+    </div>
+    <footer class="site-footer"><div class="footer-inner"><div><a class="brand" href="../index.html"><img src="../assets/munimuni-brand-logo.webp" alt="MUNIMUNI MART ロゴ"><span>MUNIMUNI MART</span></a><p>© 2026 MUNIMUNI MART. All rights reserved.</p></div><div class="footer-links"><a href="index.html">PRODUCTS</a><a href="../where-to-buy/index.html">WHERE TO BUY</a><a href="../faq/index.html">FAQ</a><a href="../contact/index.html">CONTACT</a><a href="https://www.tiktok.com/@munimuni.mart" target="_blank" rel="noreferrer">TikTok</a><a href="https://www.instagram.com/munimuni_mart_official/" target="_blank" rel="noreferrer">Instagram</a><a href="https://line.me/R/ti/p/@764tbewm?oat_content=url&ts=12260603" target="_blank" rel="noreferrer">LINE</a></div></div></footer>
+    <script src="../assets/product-gallery.js"></script>
+    <script src="../assets/app.js"></script>
+  </body>
+</html>
