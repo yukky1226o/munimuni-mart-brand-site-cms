@@ -1,17 +1,33 @@
 window.munimuniProductSeries = [
   {
-    "id": "sugar-daifuku",
-    "label": "シュガー大福",
-    "seriesImage": "../assets/products/series/sugar-daifuku-series.webp",
-    "catalogImage": "../assets/products/catalog-full/sugar-daifuku-catalog.webp",
+    "id": "croissant",
+    "label": "クロワッサン",
+    "seriesImage": "../assets/products/series/croissant-series.webp",
+    "catalogImage": "../assets/products/catalog-full/croissant-catalog.webp",
     "catalogLabel": "カタログ画像",
     "hasCatalog": true
   },
   {
-    "id": "daifuku",
-    "label": "大福",
-    "seriesImage": "../assets/products/series/daifuku-series.webp",
-    "catalogImage": "../assets/products/catalog-full/daifuku-catalog.webp",
+    "id": "cake",
+    "label": "ケーキ",
+    "seriesImage": "../assets/products/series/cake-series.webp",
+    "catalogImage": "../assets/products/catalog-full/cake-catalog.webp",
+    "catalogLabel": "カタログ画像",
+    "hasCatalog": true
+  },
+  {
+    "id": "tart",
+    "label": "タルト",
+    "seriesImage": "../assets/products/series/tart-series.webp",
+    "catalogImage": "../assets/products/catalog-full/tart-catalog.webp",
+    "catalogLabel": "カタログ画像",
+    "hasCatalog": true
+  },
+  {
+    "id": "cheesecake",
+    "label": "チーズケーキ",
+    "seriesImage": "../assets/products/series/cheesecake-series.webp",
+    "catalogImage": "../assets/products/catalog-full/cheesecake-catalog.webp",
     "catalogLabel": "カタログ画像",
     "hasCatalog": true
   },
@@ -32,42 +48,10 @@ window.munimuniProductSeries = [
     "hasCatalog": true
   },
   {
-    "id": "croissant",
-    "label": "クロワッサン",
-    "seriesImage": "../assets/products/series/croissant-series.webp",
-    "catalogImage": "../assets/products/catalog-full/croissant-catalog.webp",
-    "catalogLabel": "カタログ画像",
-    "hasCatalog": true
-  },
-  {
-    "id": "cake",
-    "label": "ケーキ",
-    "seriesImage": "../assets/products/series/cake-series.webp",
-    "catalogImage": "../assets/products/catalog-full/cake-catalog.webp",
-    "catalogLabel": "カタログ画像",
-    "hasCatalog": true
-  },
-  {
     "id": "sweets-parade",
     "label": "スイーツパレード",
     "seriesImage": "../assets/products/series/sweets-parade-series.webp",
     "catalogImage": "../assets/products/catalog-full/sweets-parade-catalog.webp",
-    "catalogLabel": "カタログ画像",
-    "hasCatalog": true
-  },
-  {
-    "id": "tart",
-    "label": "タルト",
-    "seriesImage": "../assets/products/series/tart-series.webp",
-    "catalogImage": "../assets/products/catalog-full/tart-catalog.webp",
-    "catalogLabel": "カタログ画像",
-    "hasCatalog": true
-  },
-  {
-    "id": "cheesecake",
-    "label": "チーズケーキ",
-    "seriesImage": "../assets/products/series/cheesecake-series.webp",
-    "catalogImage": "../assets/products/catalog-full/cheesecake-catalog.webp",
     "catalogLabel": "カタログ画像",
     "hasCatalog": true
   },
@@ -118,6 +102,22 @@ window.munimuniProductSeries = [
     "catalogImage": "",
     "catalogLabel": "coming soon",
     "hasCatalog": false
+  },
+  {
+    "id": "daifuku",
+    "label": "大福",
+    "seriesImage": "../assets/products/series/daifuku-series.webp",
+    "catalogImage": "../assets/products/catalog-full/daifuku-catalog.webp",
+    "catalogLabel": "カタログ画像",
+    "hasCatalog": true
+  },
+  {
+    "id": "sugar-daifuku",
+    "label": "シュガー大福",
+    "seriesImage": "../assets/products/series/sugar-daifuku-series.webp",
+    "catalogImage": "../assets/products/catalog-full/sugar-daifuku-catalog.webp",
+    "catalogLabel": "カタログ画像",
+    "hasCatalog": true
   },
   {
     "id": "tofu",
