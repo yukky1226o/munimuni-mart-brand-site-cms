@@ -40,14 +40,6 @@ window.munimuniProductSeries = [
     "hasCatalog": true
   },
   {
-    "id": "animal",
-    "label": "アニマル",
-    "seriesImage": "../assets/products/series/animal-series.webp",
-    "catalogImage": "../assets/products/catalog-full/animal-catalog.webp",
-    "catalogLabel": "カタログ画像",
-    "hasCatalog": true
-  },
-  {
     "id": "sweets-parade",
     "label": "スイーツパレード",
     "seriesImage": "../assets/products/series/sweets-parade-series.webp",
@@ -84,6 +76,14 @@ window.munimuniProductSeries = [
     "label": "ドーナツ2",
     "seriesImage": "../assets/products/series/donut-2-series.webp",
     "catalogImage": "../assets/products/catalog-full/donut-2-catalog.webp",
+    "catalogLabel": "カタログ画像",
+    "hasCatalog": true
+  },
+  {
+    "id": "animal",
+    "label": "アニマル",
+    "seriesImage": "../assets/products/series/animal-series.webp",
+    "catalogImage": "../assets/products/catalog-full/animal-catalog.webp",
     "catalogLabel": "カタログ画像",
     "hasCatalog": true
   },
