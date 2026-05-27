@@ -3960,4 +3960,28 @@ button.button:hover {
   .page:has(.page-hero) .page-hero .lead {
     margin-top: 20px;
   }
+
+  .section,
+  .page-hero,
+  .product-detail {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+
+  .about-muni-section,
+  .pickup-muni-section,
+  .news-muni-section,
+  .sns-muni-section {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .about-hero-copy {
+    width: calc(100vw - 64px);
+  }
+
+  .product-image-grid,
+  .product-series-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
