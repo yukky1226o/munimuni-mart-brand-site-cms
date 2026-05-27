@@ -2976,6 +2976,15 @@ button.button:hover {
   transform: translateY(0);
 }
 
+.about-muni-section.reveal,
+.pickup-muni-section.reveal,
+.news-muni-section.reveal,
+.sns-muni-section.reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
 @keyframes floaty {
   0%,
   100% {
