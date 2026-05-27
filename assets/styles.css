@@ -421,7 +421,7 @@ a {
 .about-inner {
   position: relative;
   z-index: 3;
-  max-width: 1460px;
+  max-width: 1320px;
   margin: 0 auto;
 }
 
@@ -695,7 +695,7 @@ a {
 }
 
 .pickup-inner {
-  max-width: 1400px;
+  max-width: 1320px;
   margin: 0 auto;
 }
 
@@ -1111,7 +1111,7 @@ a {
 }
 
 .sns-muni-inner {
-  max-width: 1420px;
+  max-width: 1320px;
   margin: 0 auto;
 }
 
