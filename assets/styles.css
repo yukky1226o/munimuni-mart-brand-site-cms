@@ -2366,7 +2366,7 @@ button.button:hover {
 
 .product-series-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
 }
 
@@ -2414,7 +2414,7 @@ button.button:hover {
 }
 
 .product-series-action {
-  justify-self: start;
+  justify-self: center;
   padding: 7px 14px;
   border-radius: 999px;
   color: #fff;
