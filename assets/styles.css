@@ -4038,4 +4038,58 @@ button.button:hover {
   .product-series-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .page:has(.page-hero) .page-hero h1 {
+    max-width: 100%;
+    font-size: clamp(2rem, 9.5vw, 2.35rem);
+    line-height: 1.16;
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .faq-search input {
+    min-height: 46px;
+    font-size: 0.94rem;
+  }
+
+  .faq-category {
+    min-width: 0;
+    overflow: hidden;
+    padding: 18px 16px;
+  }
+
+  .faq-category h2 {
+    font-size: 1.08rem;
+    line-height: 1.45;
+  }
+
+  .accordion button {
+    min-height: auto;
+    gap: 12px;
+    padding: 14px 0;
+    font-size: 0.94rem;
+    line-height: 1.55;
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .accordion button::after {
+    width: 26px;
+    height: 26px;
+    font-size: 0.95rem;
+  }
+
+  .accordion-panel p,
+  .faq-link-list,
+  .faq-text-list,
+  .faq-note {
+    font-size: 0.94rem;
+    line-height: 1.78;
+  }
+
+  .faq-link-list,
+  .faq-text-list {
+    gap: 7px;
+    padding-bottom: 14px;
+  }
 }
