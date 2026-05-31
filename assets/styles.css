@@ -4160,3 +4160,87 @@ button.button:hover {
     overflow-wrap: anywhere;
   }
 }
+
+@media (max-width: 620px) {
+  body.faq-page,
+  body.faq-page .page,
+  body.faq-page .section,
+  body.faq-page .faq-list,
+  body.faq-page .faq-category,
+  body.faq-page .accordion,
+  body.faq-page .accordion button,
+  body.faq-page .accordion-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.faq-page,
+  body.faq-page .page {
+    overflow-x: hidden !important;
+  }
+
+  body.faq-page .section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  body.faq-page .faq-list {
+    gap: 28px !important;
+  }
+
+  body.faq-page .faq-category {
+    overflow: hidden !important;
+    padding: 18px 14px !important;
+  }
+
+  body.faq-page .faq-category h2 {
+    max-width: 100% !important;
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body.faq-page .faq-category .accordion + .accordion {
+    margin-top: 15px !important;
+  }
+
+  body.faq-page .accordion button {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 26px !important;
+    gap: 12px !important;
+    align-items: center !important;
+    min-height: auto !important;
+    padding: 14px 0 !important;
+    font-family: "M PLUS Rounded 1c", "Noto Sans JP", sans-serif !important;
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body.faq-page .accordion button::after {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 13px !important;
+  }
+
+  body.faq-page .accordion-panel p,
+  body.faq-page .faq-link-list,
+  body.faq-page .faq-text-list,
+  body.faq-page .faq-note,
+  body.faq-page .accordion-panel li,
+  body.faq-page .accordion-panel a {
+    max-width: 100% !important;
+    font-family: "M PLUS Rounded 1c", "Noto Sans JP", sans-serif !important;
+    font-size: 13px !important;
+    line-height: 1.78 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+}
