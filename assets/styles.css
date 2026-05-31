@@ -2871,7 +2871,8 @@ button.button:hover {
 .accordion-panel p {
   margin: 0;
   padding: 14px 0;
-  color: var(--muted);
+  color: var(--ink);
+  font-weight: 800;
   line-height: 1.85;
 }
 
@@ -2901,7 +2902,8 @@ button.button:hover {
   gap: 8px;
   margin: 0;
   padding: 0 0 16px 1.2em;
-  color: var(--muted);
+  color: var(--ink);
+  font-weight: 800;
   line-height: 1.8;
 }
 
@@ -2916,13 +2918,14 @@ button.button:hover {
 }
 
 .faq-text-list strong {
-  color: #4a2625;
+  color: var(--ink);
   font-weight: 900;
 }
 
 .faq-note {
   font-size: 0.94rem;
-  color: #6f4c54;
+  color: var(--ink);
+  font-weight: 800;
 }
 
 .contact-form {
