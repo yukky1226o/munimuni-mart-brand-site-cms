@@ -2870,8 +2870,59 @@ button.button:hover {
 
 .accordion-panel p {
   margin: 0;
-  padding: 16px 0 22px;
+  padding: 14px 0;
   color: var(--muted);
+  line-height: 1.85;
+}
+
+.accordion-panel p:first-child {
+  padding-top: 16px;
+}
+
+.accordion-panel p:last-child {
+  padding-bottom: 22px;
+}
+
+.accordion-panel a {
+  color: #e73d91;
+  font-weight: 900;
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+
+.accordion-panel a:hover {
+  color: #9a51d6;
+  text-decoration: underline;
+}
+
+.faq-link-list,
+.faq-text-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0 0 16px 1.2em;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.faq-link-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.faq-link-list li {
+  display: flex;
+  align-items: flex-start;
+}
+
+.faq-text-list strong {
+  color: #4a2625;
+  font-weight: 900;
+}
+
+.faq-note {
+  font-size: 0.94rem;
+  color: #6f4c54;
 }
 
 .contact-form {
