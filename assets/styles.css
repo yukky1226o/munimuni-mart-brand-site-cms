@@ -3771,7 +3771,7 @@ button.button:hover {
 }
 
 .sns-muni-heading p {
-  max-width: 760px;
+  max-width: 980px;
   margin-inline: auto;
 }
 
@@ -3799,6 +3799,13 @@ button.button:hover {
 .store-list-section .eyebrow::before {
   background: linear-gradient(135deg, #ff67a8, #b96ee8);
   box-shadow: 0 0 14px rgba(242, 93, 149, 0.22);
+}
+
+@media (min-width: 901px) {
+  .sns-muni-heading p,
+  .sns-account-head p {
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 900px) {
