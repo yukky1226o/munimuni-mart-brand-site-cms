@@ -1145,7 +1145,7 @@ a {
 
 .sns-panel-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -1165,6 +1165,10 @@ a {
 
 .instagram-panel {
   border-color: rgba(208, 170, 240, 0.76);
+}
+
+.line-panel {
+  border-color: rgba(6, 199, 85, 0.34);
 }
 
 .sns-account-head {
@@ -1195,6 +1199,12 @@ a {
 .instagram-icon {
   border-radius: 18px;
   background: radial-gradient(circle at 30% 105%, #feda75 0 18%, #fa7e1e 28%, #d62976 48%, #962fbf 72%, #4f5bd5 100%);
+}
+
+.line-icon {
+  border-radius: 18px;
+  background: linear-gradient(135deg, #06c755, #00a944);
+  font-family: "Quicksand", "M PLUS Rounded 1c", sans-serif;
 }
 
 .sns-account-head h3 {
@@ -1229,6 +1239,10 @@ a {
 .instagram-panel .sns-account-head a,
 .sns-more-link.purple {
   background: linear-gradient(135deg, #d493ff, #b765e9);
+}
+
+.line-panel .sns-account-head a {
+  background: linear-gradient(135deg, #06c755, #00a944);
 }
 
 .tiktok-feed-grid {
@@ -2493,13 +2507,29 @@ button.button:hover {
   place-items: center;
 }
 
-.catalog-modal-body img {
+.catalog-product-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.catalog-product-card {
+  margin: 0;
+  overflow: hidden;
+  border: 3px solid rgba(255, 217, 232, 0.95);
+  border-radius: 20px;
+  background: #fff7fb;
+  box-shadow: 0 14px 32px rgba(242, 93, 149, 0.12);
+}
+
+.catalog-product-card img {
   display: block;
-  width: auto;
+  width: 100%;
   max-width: 100%;
-  max-height: 72svh;
+  height: 250px;
+  object-fit: contain;
   border-radius: 18px;
-  box-shadow: 0 18px 42px rgba(242, 93, 149, 0.16);
 }
 
 .catalog-coming-soon {
@@ -3933,7 +3963,7 @@ button.button:hover {
   }
 
   .product-image-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .product-series-grid {
@@ -3983,8 +4013,19 @@ button.button:hover {
     padding: 22px 14px;
   }
 
-  .catalog-modal-body img {
-    max-height: 76svh;
+  .catalog-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .catalog-product-card {
+    border-width: 2px;
+    border-radius: 16px;
+  }
+
+  .catalog-product-card img {
+    height: 150px;
+    border-radius: 14px;
   }
 
   .catalog-coming-soon {

@@ -80,8 +80,16 @@ const openCatalogModal = (categoryId) => {
   });
 
   catalogModalTitle.textContent = `${series.label}シリーズ`;
-  catalogModalBody.innerHTML = series.hasCatalog
-    ? `<img src="${series.catalogImage}" alt="${series.label}シリーズのカタログ画像" loading="eager" decoding="async">`
+  const productImages = Array.isArray(series.productImages) ? series.productImages : [];
+  catalogModalBody.innerHTML = productImages.length
+    ? `<div class="catalog-product-grid">${productImages
+        .map(
+          (src, index) => `
+          <figure class="catalog-product-card">
+            <img src="${src}" alt="${series.label}シリーズ 商品画像 ${index + 1}" loading="${index < 4 ? "eager" : "lazy"}" decoding="async">
+          </figure>`
+        )
+        .join("")}</div>`
     : `<div class="catalog-coming-soon"><span>Coming soon</span><p>このシリーズのカタログは準備中です。</p></div>`;
   catalogModal.hidden = false;
   document.body.classList.add("modal-open");
@@ -102,7 +110,7 @@ if (productSeriesGrid && galleryItems.length) {
         <button class="product-series-card" data-series-card data-series-tab="${series.id}" type="button" aria-pressed="false">
           <span class="product-series-thumb"><img src="${getSeriesThumbSrc(series.seriesImage)}" alt="${series.label}シリーズ" width="480" height="480" loading="${isPriority ? "eager" : "lazy"}" decoding="async" fetchpriority="${isPriority ? "high" : "auto"}"></span>
           <span class="product-series-name">${series.label}</span>
-          <span class="product-series-action">${series.hasCatalog ? "カタログを見る" : "Coming soon"}</span>
+          <span class="product-series-action">${series.hasCatalog ? "商品を見る" : "Coming soon"}</span>
         </button>
       `;
       }
