@@ -1,6 +1,6 @@
 # MUNIMUNI MART CMS setup
 
-このサイトのお知らせ欄は Decap CMS で管理できる構成です。
+このサイトは Decap CMS で一部コンテンツを管理できる構成です。
 
 ## Netlify側で必要な設定
 
@@ -10,9 +10,20 @@
 4. `Identity > Invite users` から管理ユーザーのメールアドレスを招待します。
 5. 公開URLの `/admin/` にアクセスしてログインします。
 
-## お知らせデータ
+## CMSで編集できる内容
 
-管理画面で編集した内容は `assets/news-data.json` に保存され、TOPページのお知らせ欄へ反映されます。
+- お知らせ: `assets/news-data.json`
+- 商品シリーズ: `assets/data/products.json`
+- 取扱店舗: `assets/data/stores.json`
+- CMSアップロード画像: `assets/uploads/`
+
+管理画面で保存するとGitHubへ反映され、Netlifyが自動で再公開します。
+
+## 商品画像について
+
+商品シリーズの「シリーズ画像」は商品一覧カードに表示されます。
+「カタログ画像」は、商品一覧カードのボタンを押した時に表示されます。
+カタログ画像を空欄にした場合は、サイト上で `Coming soon` と表示されます。
 
 ## 注意
 

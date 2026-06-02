@@ -48,6 +48,25 @@ document.querySelectorAll(".reveal").forEach((node) => {
 
 const filterButtons = document.querySelectorAll("[data-filter]");
 const productCards = document.querySelectorAll("[data-category]");
+const isLowerPage = document.querySelector('link[href^="../assets/"]') !== null;
+const assetBase = isLowerPage ? "../assets/" : "assets/";
+const resolveSitePath = (value) => {
+  const path = String(value ?? "");
+  if (!path) return "";
+  if (/^(https?:|mailto:|tel:|#)/.test(path)) return path;
+  if (path.startsWith("/assets/")) return isLowerPage ? `..${path}` : path.slice(1);
+  if (path.startsWith("/")) return isLowerPage ? `..${path}` : path.slice(1);
+  return path;
+};
+const escapeHtml = (value) =>
+  String(value ?? "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const category = button.dataset.filter;
@@ -61,12 +80,12 @@ filterButtons.forEach((button) => {
 });
 
 const productSeriesGrid = document.querySelector("[data-product-series-grid]");
-const galleryItems = Array.isArray(window.munimuniProductSeries) ? window.munimuniProductSeries : [];
+let galleryItems = Array.isArray(window.munimuniProductSeries) ? window.munimuniProductSeries : [];
 const catalogModal = document.querySelector("[data-catalog-modal]");
 const catalogModalTitle = document.querySelector("[data-catalog-modal-title]");
 const catalogModalBody = document.querySelector("[data-catalog-modal-body]");
 const catalogCloseButtons = document.querySelectorAll("[data-catalog-close]");
-const getSeriesThumbSrc = (src) => src.replace("/series/", "/series/thumbs/").replace(".webp", ".jpg");
+const getSeriesThumbSrc = (src) => resolveSitePath(src).replace("/series/", "/series/thumbs/").replace(".webp", ".jpg");
 
 const openCatalogModal = (categoryId) => {
   if (!catalogModal || !catalogModalTitle || !catalogModalBody) return;
@@ -80,8 +99,9 @@ const openCatalogModal = (categoryId) => {
   });
 
   catalogModalTitle.textContent = `${series.label}シリーズ`;
-  catalogModalBody.innerHTML = series.catalogImage
-    ? `<figure class="catalog-image-card"><img src="${series.catalogImage}" alt="${series.label}シリーズ カタログ" loading="eager" decoding="async"></figure>`
+  const hasCatalog = Boolean(series.hasCatalog && series.catalogImage);
+  catalogModalBody.innerHTML = hasCatalog
+    ? `<figure class="catalog-image-card"><img src="${resolveSitePath(series.catalogImage)}" alt="${escapeHtml(series.label)}シリーズ カタログ" loading="eager" decoding="async"></figure>`
     : `<div class="catalog-coming-soon"><span>Coming soon</span><p>このシリーズのカタログは準備中です。</p></div>`;
   catalogModal.hidden = false;
   document.body.classList.add("modal-open");
@@ -93,16 +113,18 @@ const closeCatalogModal = () => {
   document.body.classList.remove("modal-open");
 };
 
-if (productSeriesGrid && galleryItems.length) {
+const renderProductSeries = (items) => {
+  if (!productSeriesGrid || !Array.isArray(items) || !items.length) return;
+  galleryItems = items;
   productSeriesGrid.innerHTML = galleryItems
     .map(
       (series, index) => {
         const isPriority = index < 6;
         return `
-        <button class="product-series-card" data-series-card data-series-tab="${series.id}" type="button" aria-pressed="false">
-          <span class="product-series-thumb"><img src="${getSeriesThumbSrc(series.seriesImage)}" alt="${series.label}シリーズ" width="480" height="480" loading="${isPriority ? "eager" : "lazy"}" decoding="async" fetchpriority="${isPriority ? "high" : "auto"}"></span>
-          <span class="product-series-name">${series.label}</span>
-          <span class="product-series-action">${series.hasCatalog ? "カタログを見る" : "Coming soon"}</span>
+        <button class="product-series-card" data-series-card data-series-tab="${escapeHtml(series.id)}" type="button" aria-pressed="false">
+          <span class="product-series-thumb"><img src="${getSeriesThumbSrc(series.seriesImage)}" alt="${escapeHtml(series.label)}シリーズ" width="480" height="480" loading="${isPriority ? "eager" : "lazy"}" decoding="async" fetchpriority="${isPriority ? "high" : "auto"}"></span>
+          <span class="product-series-name">${escapeHtml(series.label)}</span>
+          <span class="product-series-action">${series.hasCatalog && series.catalogImage ? "カタログを見る" : "Coming soon"}</span>
         </button>
       `;
       }
@@ -114,7 +136,21 @@ if (productSeriesGrid && galleryItems.length) {
       openCatalogModal(tab.dataset.seriesTab);
     });
   });
-}
+};
+
+const loadProductSeries = async () => {
+  if (!productSeriesGrid) return;
+  try {
+    const response = await fetch(`${assetBase}data/products.json`, { cache: "no-cache" });
+    if (!response.ok) throw new Error("Product data not found");
+    const data = await response.json();
+    renderProductSeries(data.series);
+  } catch (error) {
+    renderProductSeries(galleryItems);
+  }
+};
+
+loadProductSeries();
 
 catalogCloseButtons.forEach((button) => button.addEventListener("click", closeCatalogModal));
 document.addEventListener("keydown", (event) => {
@@ -185,15 +221,6 @@ contactForm?.addEventListener("submit", async (event) => {
 });
 
 const newsList = document.querySelector("[data-news-list]");
-const escapeHtml = (value) =>
-  String(value ?? "").replace(/[&<>"']/g, (char) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  })[char]);
-
 const renderNewsItems = (items) => {
   if (!newsList || !Array.isArray(items)) return;
   newsList.innerHTML = items
@@ -202,7 +229,7 @@ const renderNewsItems = (items) => {
         <article class="news-muni-item">
           <span class="news-muni-label ${escapeHtml(item.categoryTone)}">${escapeHtml(item.category)}</span>
           <time>${escapeHtml(item.date)}</time>
-          <a href="${escapeHtml(item.url)}">${escapeHtml(item.title)}</a>
+          <a href="${escapeHtml(resolveSitePath(item.url))}">${escapeHtml(item.title)}</a>
           <span class="news-muni-arrow" aria-hidden="true">›</span>
         </article>
       `
@@ -213,7 +240,7 @@ const renderNewsItems = (items) => {
 const loadNewsItems = async () => {
   if (!newsList) return;
   try {
-    const response = await fetch("assets/news-data.json", { cache: "no-cache" });
+    const response = await fetch(`${assetBase}news-data.json`, { cache: "no-cache" });
     if (!response.ok) throw new Error("News data not found");
     const data = await response.json();
     renderNewsItems(data.news);
@@ -223,3 +250,34 @@ const loadNewsItems = async () => {
 };
 
 loadNewsItems();
+
+const storeTableBody = document.querySelector("[data-store-list]");
+const renderStores = (stores) => {
+  if (!storeTableBody || !Array.isArray(stores)) return;
+  storeTableBody.innerHTML = stores
+    .map(
+      (store) => `
+        <tr>
+          <td>${escapeHtml(store.name)}</td>
+          <td>${escapeHtml(store.type)}</td>
+          <td>${escapeHtml(store.note)}</td>
+          <td><span class="store-status ${escapeHtml(store.statusTone || "active")}">${escapeHtml(store.status)}</span></td>
+        </tr>
+      `
+    )
+    .join("");
+};
+
+const loadStores = async () => {
+  if (!storeTableBody) return;
+  try {
+    const response = await fetch(`${assetBase}data/stores.json`, { cache: "no-cache" });
+    if (!response.ok) throw new Error("Store data not found");
+    const data = await response.json();
+    renderStores(data.stores);
+  } catch (error) {
+    return;
+  }
+};
+
+loadStores();

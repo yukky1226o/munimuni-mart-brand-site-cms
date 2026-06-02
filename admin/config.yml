@@ -5,8 +5,8 @@ backend:
 local_backend: true
 locale: ja
 
-media_folder: assets/cms
-public_folder: /assets/cms
+media_folder: assets/uploads
+public_folder: /assets/uploads
 
 collections:
   - name: site_data
@@ -50,3 +50,67 @@ collections:
                 name: url
                 widget: string
                 hint: 例：products/index.html または https://example.com/
+      - name: products
+        label: 商品シリーズ
+        file: assets/data/products.json
+        fields:
+          - label: シリーズ一覧
+            name: series
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - label: 管理ID
+                name: id
+                widget: string
+                hint: 半角英数字推奨。例：donut、cake、pancake
+              - label: 表示名
+                name: label
+                widget: string
+              - label: シリーズ画像
+                name: seriesImage
+                widget: image
+                hint: 商品一覧カードに表示される画像です。
+              - label: カタログ画像
+                name: catalogImage
+                widget: image
+                required: false
+                hint: カタログを見るボタンで開く画像です。未設定の場合はComing soonになります。
+              - label: カタログラベル
+                name: catalogLabel
+                widget: string
+                default: カタログ
+              - label: カタログを表示する
+                name: hasCatalog
+                widget: boolean
+                default: true
+      - name: stores
+        label: 取扱店舗
+        file: assets/data/stores.json
+        fields:
+          - label: 店舗一覧
+            name: stores
+            widget: list
+            summary: "{{fields.name}} / {{fields.status}}"
+            fields:
+              - label: 取扱店舗
+                name: name
+                widget: string
+              - label: 種別
+                name: type
+                widget: string
+                hint: 例：ECサイト、実店舗、各店舗
+              - label: 補足
+                name: note
+                widget: text
+              - label: 取扱状況
+                name: status
+                widget: string
+                hint: 例：取扱中、一部店舗、準備中
+              - label: 表示色
+                name: statusTone
+                widget: select
+                options:
+                  - label: ピンク
+                    value: active
+                  - label: グレー
+                    value: pending

@@ -12,6 +12,11 @@
     Cache-Control = "no-cache"
 
 [[headers]]
+  for = "/assets/data/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
   for = "/admin/*"
   [headers.values]
     X-Robots-Tag = "noindex"

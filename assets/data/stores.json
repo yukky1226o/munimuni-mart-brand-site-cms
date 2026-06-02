@@ -1,0 +1,67 @@
+{
+  "stores": [
+    {
+      "name": "バースデイ",
+      "type": "ECサイト",
+      "note": "オンラインでのお取り扱い",
+      "status": "取扱中",
+      "statusTone": "active"
+    },
+    {
+      "name": "上野ヤマシロヤ",
+      "type": "実店舗",
+      "note": "店舗でのお取り扱い",
+      "status": "取扱中",
+      "statusTone": "active"
+    },
+    {
+      "name": "ヨドバシカメラ",
+      "type": "各店舗",
+      "note": "取り扱いのない店舗がある場合がございます",
+      "status": "一部店舗",
+      "statusTone": "active"
+    },
+    {
+      "name": "キディランド",
+      "type": "各店舗",
+      "note": "取り扱いのない店舗がある場合がございます",
+      "status": "一部店舗",
+      "statusTone": "active"
+    },
+    {
+      "name": "キャンパス",
+      "type": "各店舗",
+      "note": "取り扱いのない店舗がある場合がございます",
+      "status": "一部店舗",
+      "statusTone": "active"
+    },
+    {
+      "name": "おもちゃのよしだ",
+      "type": "実店舗",
+      "note": "店舗でのお取り扱い",
+      "status": "取扱中",
+      "statusTone": "active"
+    },
+    {
+      "name": "インキューブ",
+      "type": "各店舗",
+      "note": "取り扱いのない店舗がある場合がございます",
+      "status": "一部店舗",
+      "statusTone": "active"
+    },
+    {
+      "name": "トイザらス",
+      "type": "各店舗",
+      "note": "取り扱いのない店舗がある場合がございます",
+      "status": "一部店舗",
+      "statusTone": "active"
+    },
+    {
+      "name": "ドン・キホーテ",
+      "type": "各店舗",
+      "note": "MEGA、MEGA UNY、アピタ、キラキラなど。取り扱いのない店舗がございます",
+      "status": "一部店舗",
+      "statusTone": "active"
+    }
+  ]
+}
