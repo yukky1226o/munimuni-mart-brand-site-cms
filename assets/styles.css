@@ -2335,6 +2335,61 @@ button.button:hover {
   color: var(--muted);
 }
 
+.company-section {
+  padding-top: 0;
+}
+
+.company-overview {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.company-overview h2 {
+  margin: 0 0 22px;
+  text-align: center;
+}
+
+.company-list {
+  display: grid;
+  margin: 0;
+}
+
+.company-list div {
+  display: grid;
+  grid-template-columns: minmax(120px, 180px) 1fr;
+  gap: 18px;
+  align-items: start;
+  padding: 16px 0;
+  border-top: 1px dashed rgba(242, 93, 149, 0.34);
+}
+
+.company-list div:last-child {
+  border-bottom: 1px dashed rgba(242, 93, 149, 0.34);
+}
+
+.company-list dt {
+  color: #f25d95;
+  font-weight: 900;
+}
+
+.company-list dd {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 800;
+  line-height: 1.8;
+}
+
+.company-list a {
+  color: #b44ee8;
+  font-weight: 900;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.company-list a:hover {
+  color: #f25d95;
+}
+
 .news-grid,
 .product-grid {
   display: grid;
@@ -4290,5 +4345,25 @@ button.button:hover {
     white-space: normal !important;
     word-break: normal !important;
     overflow-wrap: anywhere !important;
+  }
+
+  .company-overview {
+    padding: 20px;
+  }
+
+  .company-overview h2 {
+    margin-bottom: 16px;
+  }
+
+  .company-list div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 14px 0;
+  }
+
+  .company-list dt,
+  .company-list dd {
+    font-size: 13px;
+    line-height: 1.7;
   }
 }
